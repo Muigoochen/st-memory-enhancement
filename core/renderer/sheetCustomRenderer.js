@@ -43,7 +43,8 @@ function toHtml(valueSheet) {
 
 function toCSV(valueSheet) {
     // 将 valueSheet 转换为 CSV 格式
-    return valueSheet.map(row => row.join(',')).join('\n');
+    // return valueSheet.map(row => row.join(',')).join('\n');
+    return valueSheet.slice(1).map(row=>row.slice(1).join('fg,')+'fg,').join('\n'); // 不返回首列，因为压根就没有内容；不返回首行，一般状态栏编辑时不要表头。
 }
 
 function toMarkdown(valueSheet) {
